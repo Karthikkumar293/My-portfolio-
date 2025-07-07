@@ -1,3 +1,0 @@
-# Karthik S – Portfolio 🌐
-
- 
