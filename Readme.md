@@ -43,16 +43,7 @@ This is my personal portfolio website built using **HTML**, **CSS**, and a bit o
 
 ---
 
-## 📬 Contact Form Setup
 
-This portfolio uses [Web3Forms](https://web3forms.com) to send emails without server-side code.
-
-### ✅ Setup Steps:
-1. Visit [https://web3forms.com](https://web3forms.com)
-2. Generate a free access key
-3. Replace the `access_key` in the HTML with your own:
-   ```html
-   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
 
 
 🧠 Author
