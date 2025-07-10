@@ -1,4 +1,4 @@
-Here's a README.md file for the provided HTML code, designed to be comprehensive and easy to understand.
+
 Karthik Kumar - Personal Portfolio
 Overview
 Welcome to the personal portfolio of Karthik Kumar, an AIML (Artificial Intelligence and Machine Learning) student at HKBK College of Engineering, Bengaluru. This portfolio showcases my academic background, skills, and projects, reflecting my passion for web development and data science.
