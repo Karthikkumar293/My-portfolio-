@@ -60,4 +60,5 @@ Feel free to connect with me through any of the following channels:
  * LinkedIn: Karthik Kumar
  * GitHub: Karthikkumar293
  * Instagram: royal_rajput_karthik
+
 You can also use the "Send Me a Message" form directly on the websit
