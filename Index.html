@@ -89,7 +89,8 @@
       position: fixed;
       width: 100%;
       top: 0;
-      background: rgba(255, 255, 255, 0.1);
+      /* Default navigation bar color (black) */
+      background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       z-index: 1000;
@@ -98,8 +99,13 @@
     }
 
     header.scrolled {
+      /* When scrolled, apply the existing background with shadow */
       background: rgba(255, 255, 255, 0.95);
       box-shadow: var(--shadow-light);
+    }
+    
+    [data-theme="dark"] header.scrolled {
+      background: rgba(45, 55, 72, 0.95); /* Dark mode scrolled header background */
     }
 
     .nav-container {
@@ -133,7 +139,7 @@
 
     .nav-link {
       text-decoration: none;
-      color: #ffffff;
+      color: #ffffff; /* Default color for nav links when header is black */
       font-weight: 500;
       position: relative;
       padding: 0.8rem 1.5rem;
@@ -141,6 +147,11 @@
       transition: all 0.3s ease;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       border: 2px solid transparent;
+    }
+
+    header.scrolled .nav-link {
+        color: var(--text-primary); /* Change link color when header is scrolled (white/dark card bg) */
+        text-shadow: none; /* Remove text shadow when scrolled */
     }
 
     .nav-link::before {
@@ -257,6 +268,12 @@
       backdrop-filter: blur(10px);
     }
 
+    header.scrolled .theme-btn {
+      color: var(--text-primary); /* Change theme button color when scrolled */
+      background: rgba(0, 0, 0, 0.05); /* Lighter background for the button when scrolled */
+    }
+
+
     .theme-btn:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: rotate(180deg) scale(1.1);
@@ -281,6 +298,47 @@
       position: relative;
       animation: titleGlow 2s ease-in-out infinite alternate;
     }
+
+    /* Specific color for "About Me" title */
+    #about .section-title {
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Specific color for "Skills" title */
+    #skills .section-title {
+      background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Specific color for "Projects" title */
+    #projects .section-title {
+      background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Specific color for "Connect With Me" title */
+    #connect .section-title:first-of-type { /* Target the first section-title in the #connect section */
+      background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Specific color for "Send Me a Message" title */
+    #connect .section-title:last-of-type { /* Target the last section-title in the #connect section */
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* A new gradient for this specific title */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
 
     @keyframes titleGlow {
       from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5)); }
@@ -858,7 +916,6 @@
 
       section {
         padding: 6rem 1rem 3rem;
-        
       }
 
       .modal-content {
@@ -1016,14 +1073,13 @@
   <section id="connect" class="fade-in">
     <div class="section-title">Connect With Me</div>
     
-    <!-- Social Media Links -->
     <div class="social-links">
       <a href="https://www.instagram.com/royal_rajput_karthik?igsh=cmlpejRvNDFnY2Z4" target="_blank" rel="noopener noreferrer" class="social-link instagram">
         <i class="fab fa-instagram"></i>
         <span>Instagram</span>
       </a>
       <a href="https://www.linkedin.com/in/karthik-kumar-43b42a336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
-        <i class="fab fa-lin fa-linkedin"></i>
+        <i class="fab fa-linkedin"></i>
         <span>LinkedIn</span>
       </a>
       <a href="mailto:kumarkarthik5665@gmail.com" class="social-link gmail">
@@ -1062,7 +1118,6 @@
     <p>&copy; 2025 Karthik Kumar | AIML Developer</p>
   </footer>
 
-  <!-- Project Modal -->
   <div class="modal-overlay" id="projectModal">
     <div class="modal-content">
       <button class="modal-close" id="closeModal">&times;</button>
@@ -1099,7 +1154,8 @@
         url: 'https://github.com/Karthikkumar293/Login-Page-From-Html-Css',
         description: 'Responsive login page built with HTML and CSS with modern design.',
         tech: ['HTML', 'CSS', 'JavaScript']
-      },'simple-calculator': {
+      },
+      'simple-calculator': {
         name: 'Simple Calculator',
         url: 'https://github.com/Karthikkumar293/Simple-Calculator-From-Python',
         description: 'A functional calculator application built using Python.',
@@ -1197,7 +1253,8 @@
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth',
+          target.scrollIntoView({
+            behavior: 'smooth',
             block: 'start'
           });
         }
@@ -1331,6 +1388,7 @@ function updateActiveLink() {
     }
   });
 }
+
 window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
   </script>
